@@ -11,13 +11,14 @@ jobs:
   windows_job:
     runs-on: windows-latest
     steps:
-      - run: echo 'Hi ${{ env.environment }}'  # Hi Mona
-      - run: echo 'Hi ${{ env.env_2 }}'  # Hi Octocat
+      - run: echo 'Hi ${{ env.environment }}'  # Hi stage
+      - run: echo 'Hi ${{ env.demo_var }}'  # Hi deployment
+      - run: echo 'Hi ${{ env.env_2 }}'  # Hi prod
         env:
-          env_2: Octocat
+          env_2: prod
   linux_job:
     runs-on: ubuntu-latest
     env:
       environment: dev
     steps:
-      - run: echo 'Hi ${{ env.environment }}'  # Hi Tux
+      - run: echo 'Hi ${{ env.environment }}'  # Hi dev
