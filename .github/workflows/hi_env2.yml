@@ -1,0 +1,21 @@
+name: Env2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy_dev:
+    runs-on: ubuntu-latest
+    name: Deploy to Dev
+    environment: dev
+    steps: 
+     - run: echo 'Hi ${{ $environment }}'  # Hi dev
+      
+  deploy_prod:
+    runs-on: ubuntu-latest
+    name: Deploy to Prod
+    needs: deploy_dev
+    environment: prod
+    steps: 
+     - run: echo 'Hi ${{ $environment }}'  # Hi prod
+    
