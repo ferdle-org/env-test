@@ -19,6 +19,8 @@ jobs:
   linux_job:
     runs-on: ubuntu-latest
     env:
-      environment: dev
+      environment_name: dev
     steps:
-      - run: echo 'Hi ${{ env.environment }}'  # Hi dev
+      - run: echo 'Hi ${{ env.environment_name }}'  # Hi dev
+      - run: echo 'Hi ${{ env.demo_var }}'  # Hi deployment
+      - run: echo 'Hi ${{ env.environment }}'  # Hi stage
