@@ -1,0 +1,23 @@
+name: Hi Env
+
+on:
+ workflow_dispatch:
+
+env:
+  environment: stage
+  demo_var: deployment
+
+jobs:
+  windows_job:
+    runs-on: windows-latest
+    steps:
+      - run: echo 'Hi ${{ env.environment }}'  # Hi Mona
+      - run: echo 'Hi ${{ env.env_2 }}'  # Hi Octocat
+        env:
+          env_2: Octocat
+  linux_job:
+    runs-on: ubuntu-latest
+    env:
+      environment: dev
+    steps:
+      - run: echo 'Hi ${{ env.environment }}'  # Hi Tux
