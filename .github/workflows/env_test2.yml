@@ -1,0 +1,13 @@
+name: Env Test
+
+on:
+ workflow_dispatch:
+
+env:
+  name: stage
+  
+jobs:
+  windows_job:
+    runs-on: windows-latest
+    steps:
+      - run: echo 'Hi ${{ environment.name }}'  # Hi stage
