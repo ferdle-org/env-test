@@ -1,4 +1,4 @@
-name: Env Test
+name: Env Test 2
 
 on:
  workflow_dispatch:
