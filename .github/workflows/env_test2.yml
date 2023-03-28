@@ -10,4 +10,4 @@ jobs:
   windows_job:
     runs-on: windows-latest
     steps:
-      - run: echo 'Hi ${{ environment.name }}'  # Hi stage
+      - run: echo 'Hi ${{ env.name }}'  # Hi stage
