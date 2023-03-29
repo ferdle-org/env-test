@@ -12,4 +12,4 @@ jobs:
     steps:
       - run: echo 'Hi ${{ env.name }}'  # Hi stage
       - run: echo 'Hi ${{ github.actor }}'
-      - run: echo 'Also, Hi ${{ github.triggering.actor }}'
+      - run: echo 'Also, Hi ${{ github.triggering_actor }}'
