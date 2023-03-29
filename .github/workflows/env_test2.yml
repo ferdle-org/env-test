@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-         echo ${{ github.actor }} >> actor.txt
-         echo ${{ github.github.triggering_actor }} >> triggering_actor.txt
-         echo ${{ github.action_repository }} >> action_repo.txt
+         who >> demo.txt
+         echo '${{ github.actor }}' > actor.txt
+         echo "${{ github.github.triggering_actor }}" >> triggering_actor.txt
+         echo "${{ github.action_repository }}" > action_repo.txt
          echo '${{ github.event}}' >> event.txt
          echo '${{ github.action_ref }}' >> action_ref.txt
          echo '${{ github.head_ref }}' >> head_ref.txt
