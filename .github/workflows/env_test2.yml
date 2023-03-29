@@ -8,11 +8,12 @@ jobs:
   linux_job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'Hi ${{ github.actor }}' >> actor.txt
-      - run: echo 'Hi ${{ github.github.triggering_actor }}' >> triggering_actor.txt
-      - run: echo '${{ github.action_repository }}' >> action_repo.txt
-      - run: echo '${{ github.event}}' >> event.txt
-      - run: echo '${{ github.action_ref }}' >> action_ref.txt
-      - run: echo '${{ github.head_ref }}' >> head_ref.txt
-      - run: echo '${{ github.ref }}' >> ref.txt
-      - run: echo '${{ github.github.repository_owner }}' >> repo_owner.txt
+      - run: |
+         echo ${{ github.actor }} >> actor.txt
+         echo ${{ github.github.triggering_actor }} >> triggering_actor.txt
+         echo ${{ github.action_repository }} >> action_repo.txt
+         echo '${{ github.event}}' >> event.txt
+         echo '${{ github.action_ref }}' >> action_ref.txt
+         echo '${{ github.head_ref }}' >> head_ref.txt
+         echo '${{ github.ref }}' >> ref.txt
+         echo '${{ github.github.repository_owner }}' >> repo_owner.txt
