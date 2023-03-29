@@ -9,9 +9,11 @@ env:
 
 jobs:
   windows_job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - run: echo 'Hi ${{ env.environment }}'  # Hi stage
+      - run: echo 'Hi ${{ github.actor }}'
+      - run: echo 'Also, Hi ${{ github.triggering.actor }}'
       - run: echo 'Hi ${{ env.demo_var }}'  # Hi deployment
       - run: echo 'Hi ${{ env.env_2 }}'  # Hi prod
         env:
