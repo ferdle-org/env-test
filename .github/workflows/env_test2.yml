@@ -10,10 +10,10 @@ jobs:
     steps:
       - run: |
          echo '${{ github.actor }}'
-         echo '${{ github.github.triggering_actor }}'
+         echo '${{ github.triggering_actor }}'
          echo '${{ github.action_repository }}'
          echo '${{ github.event}}'
          echo '${{ github.action_ref }}'
          echo '${{ github.head_ref }}'
          echo '${{ github.ref }}'
-         echo '${{ github.github.repository_owner }}'
+         echo '${{ github.repository_owner }}'
