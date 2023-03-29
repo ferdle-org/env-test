@@ -3,11 +3,13 @@ name: Env Test 2
 on:
  push:
    branches: main
-   
+
 jobs:
-  linux_job:
+  deployment:
     runs-on: ubuntu-latest
+    environment: production
     steps:
+      - name: deploy
       - run: |
          echo '${{ github.actor }}'
          echo '${{ github.triggering_actor }}'
