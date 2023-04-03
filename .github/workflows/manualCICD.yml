@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   
 env:
-  dev: development
+  development: development
   stage: stage
   production: production
   
