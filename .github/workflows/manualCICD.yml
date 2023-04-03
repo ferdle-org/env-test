@@ -3,11 +3,6 @@ name: Manual CI + CD
 on:
   workflow_dispatch:
   
-env:
-  development: development
-  stage: stage
-  production: production
-  
 jobs:
   Build:
    runs-on: ubuntu-latest
@@ -21,7 +16,7 @@ jobs:
      needs: [Build]
      runs-on: ubuntu-latest
      environment:
-       name: ${{ env.development }}
+       name: development
        
      steps:
        - name: Deploy
@@ -32,7 +27,7 @@ jobs:
      needs: [Build]
      runs-on: ubuntu-latest
      environment:
-       name: ${{ env.stage }}
+       name: stage
        
      steps:
        - name: Deploy
@@ -43,7 +38,7 @@ jobs:
     needs: [Build]
     runs-on: ubuntu-latest
     environment:
-      name: ${{ env.production }}
+      name: production
       
     steps:
       - name: Deploy
