@@ -1,0 +1,41 @@
+name: Danger
+
+# Controls when the action will run.
+on: pull_request
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  danger:
+    runs-on: ubuntu-latest
+    # This job shouldn't take more than this amount of time to complete. Setting this value allow us to kill the
+    # instance in case if the build hangs, so we don't waste credits while still getting feedback asap.
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v1
+      - name: Danger
+        uses: docker://ghcr.io/danger/danger-swift:3.13.0
+        with:
+          args: --failOnErrors --no-publish-check
+        env:
+          GITHUB_TOKEN: ${{ secrets.NEXTDOOR_BOT_GITHUB_TOKEN }}
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+
+  swiftlint:
+    runs-on: macos-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Lint Swift files
+        run: |
+          swiftlint --quiet --strict
+
+  yamllint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Lint YAML files
+        run: |
+          yamllint -c iOS/.yamllint ./
