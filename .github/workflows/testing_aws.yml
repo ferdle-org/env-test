@@ -12,7 +12,6 @@ jobs:
        id: generate_secret_key_names
        run: |
          prefix=$(echo ${{ github.event.inputs.target_environment }})
-         echo "::set-output  name=aws_access_key_id_key::${prefix^^}_AWS_TERRAFORM_ACCESS_KEY_ID"
          echo "name=aws_access_key_id_key::${prefix^^}_AWS_TERRAFORM_ACCESS_KEY_ID" >> $GITHUB_OUTPUT
          echo "name=aws_secret_access_key_key::${prefix^^}_AWS_TERRAFORM_SECRET_ACCESS_KEY" >> $GITHUB_OUTPUT
 
@@ -22,3 +21,9 @@ jobs:
          aws-region: eu-central-1
          aws-access-key-id: ${{ secrets[steps.generate_secret_key_names.outputs.aws_access_key_id_key] }}
          aws-secret-access-key: ${{ secrets[steps.generate_secret_key_names.outputs.aws_secret_access_key_key] }}
+         
+     - name: Set color
+       id: random-color-generator
+       run: echo "SELECTED_COLOR=green" >> $GITHUB_OUTPUT
+     - name: Get color
+       run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
