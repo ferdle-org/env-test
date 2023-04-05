@@ -31,7 +31,9 @@ jobs:
        
      - name: Get Variable
        id: make-variable
-       run: echo "name=aws_access_key_id_key" >> $GITHUB_OUTPUT
+       run: |
+         echo "name=AWS1" >> $GITHUB_OUTPUT
+         echo "name=AWS2" >> $GITHUB_OUTPUT
        
      - name: Print Variable
        run: echo "The AWS Key saved is ${{ steps.make-variable.outputs.name }}"
