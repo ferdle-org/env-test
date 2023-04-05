@@ -37,5 +37,5 @@ jobs:
        
      - name: Print Variable
        run: |
-        echo "The first AWS Key saved is ${{ steps.make-variable.outputs.name1 }}"
+        echo "The first AWS Key saved is ${{ steps.make-variable.outputs.AWS1 }}"
         echo "The second AWS Key saved is ${{ steps.make-variable.outputs.name2 }}"
