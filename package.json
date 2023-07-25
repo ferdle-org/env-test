@@ -1,0 +1,20 @@
+{
+  "name": "env-test",
+  "version": "1.0.0",
+  "description": "Testing Publish",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "ferdlestier",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferdlestier/env-test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ferdlestier/env-test/issues"
+  },
+  "homepage": "https://github.com/ferdlestier/env-test#readme"
+}
