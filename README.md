@@ -1,5 +1,1 @@
 # env-test
-
-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
-
-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
